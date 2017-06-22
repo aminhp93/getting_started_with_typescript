@@ -1,6 +1,12 @@
-class SweetSweetClass {
-	constructor(){
-		console.log("Even sweeter")
+class SweetSweetBasil{
+	constructor(name:string){
+		console.log("Hello " + name)
+	}
+
+	color(){
+		console.log("Green")
 	}
 }
-let basil = new SweetSweetClass()
+
+let basil = new SweetSweetBasil("World")
+basil.color()
