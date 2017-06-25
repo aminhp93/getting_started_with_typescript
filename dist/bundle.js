@@ -69,19 +69,43 @@
 
 "use strict";
 
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 exports.__esModule = true;
 var getcoffee_1 = __webpack_require__(1);
-function f(input) {
-    var a = 100;
-    if (input) {
-        var b = a + 123;
-        return b;
+var ReallyCoffee = (function (_super) {
+    __extends(ReallyCoffee, _super);
+    function ReallyCoffee() {
+        var _this = _super.call(this) || this;
+        _this.coffeeType = "bulletProff";
+        return _this;
     }
-    return a;
-}
-console.log(f(true));
-console.log(f(false));
-var coffee = new getcoffee_1.MustHaveCoffee();
+    ReallyCoffee.prototype.f = function (input) {
+        var a = 100;
+        if (input) {
+            var b = a + 123;
+            return b;
+        }
+        return a;
+    };
+    ReallyCoffee.prototype.setCoffeeType = function (name) {
+        _super.prototype.setCoffeeType.call(this, name);
+        console.log("hello there" + this.coffeeType);
+    };
+    return ReallyCoffee;
+}(getcoffee_1.MustHaveCoffee));
+var newCoffee = new ReallyCoffee();
+newCoffee.f(true);
+newCoffee.setCoffeeType("bulletProff");
+var oldCoffee = new getcoffee_1.MustHaveCoffee();
 
 
 /***/ }),
@@ -93,8 +117,11 @@ var coffee = new getcoffee_1.MustHaveCoffee();
 exports.__esModule = true;
 var MustHaveCoffee = (function () {
     function MustHaveCoffee() {
-        console.log("Make a bulletproff");
+        console.log("Must have coffee");
     }
+    MustHaveCoffee.prototype.setCoffeeType = function (name) {
+        this.coffeeType = name;
+    };
     return MustHaveCoffee;
 }());
 exports.MustHaveCoffee = MustHaveCoffee;
